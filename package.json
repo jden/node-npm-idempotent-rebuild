@@ -1,0 +1,21 @@
+{
+  "name": "npm-idempotent-rebuild",
+  "author": "jden <jason@denizac.org>",
+  "version": "1.0.0",
+  "description": "run npm rebuild only if cannot load native modules",
+  "keywords": ["npm", "rebuild", "idempotent", "build", "native", "module"],
+  "main": "index.js",
+  "scripts": {
+    "lint": "standard",
+    "pretest": "npm run todo && standard",
+    "test": "mochi",
+    "todo": "echo TODO: create git repo; echo TODO: enable circleci build; exit 1"
+  },
+  "repository": "git@github.com:jden/node-npm-idempotent-rebuild.git",
+  "license": "ISC",
+  "readmeFilename": "README.md",
+  "devDependencies": {
+    "mochi": "0.3.0",
+    "standard": "^6.0.0"
+  }
+}
