@@ -30,6 +30,13 @@ npmIdempotentRebuild({dir: __dirname}, function (err, rebuilt) {
 ## api
 with [jsig](https://github.com/jsigbiz/spec) type annotation:
 
+### `npmIdempotentRebuild(opt, callback : Callback<rebuilt: Boolean>) => void`
+Rebuilds node_modules if necessary. Takes a Node.js-style callback with error, if any,
+and `rebuilt`, which is true if `npm rebuild` was executed.
+
+Options:
+- `level`: String - one of `silent` (default), `info`, or `debug`
+- `dir`: String - the cwd for running `npm rebuild`, defaults to current cwd.
 
 
 ## installation
