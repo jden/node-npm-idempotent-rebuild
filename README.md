@@ -3,17 +3,27 @@ run npm rebuild only if cannot load native modules
 
 [![js standard style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)]()
 
-[![build status](https://circleci.com/gh/jden/node-nonblocking.svg?&style=shield)][circleci]
+[![build status](https://circleci.com/gh/jden/node-npm-idempotent-rebuild.svg?&style=shield)][circleci]
 
-[circleci]: https://circleci.com/gh/jden/node-nonblocking
+[circleci]: https://circleci.com/gh/jden/node-npm-idempotent-rebuild
 [standard]: http://standardjs.com/
 
-*WARNING: this is not production quality software, use at your own risk*
+Rebuilding native modules can be slow. This module attempts loading all native modules in
+the dependency tree. If they fail, it runs `npm rebuild`. This is useful when switching
+between node versions or between operating systems with cached `node_modules` directories.
 
 
-## usage
+## cli usage
+```
+$ npm-idempotent-rebuild
+```
+
+## programmatic usage
 ```js
 const npmIdempotentRebuild = require('npm-idempotent-rebuild')
+npmIdempotentRebuild({dir: __dirname}, function (err, rebuilt) {
+  console.log(err, rebuilt ? : 'rebuilt node modules' : 'skipped rebuilding')
+})
 ```
 
 
@@ -33,6 +43,8 @@ From package root:
 
     $ npm install
     $ npm test
+
+For debug information, set env var DEBUG=true
 
 
 ## contributors

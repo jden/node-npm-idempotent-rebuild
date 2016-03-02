@@ -1,0 +1,14 @@
+{
+  "name": "test-modules",
+  "version": "1.0.0",
+  "description": "dummy native modules for npm-idempotent-rebuild test (checked in to repo)",
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "hiredis": "^0.4.1",
+    "ws": "^1.0.1"
+  },
+  "scripts": {
+    "clean": "rm -rf node_modules test_node_modules && npm install --ignore-scripts"
+  }
+}
