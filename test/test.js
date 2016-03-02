@@ -1,15 +1,16 @@
-/* globals describe, it, before, beforeEach */
+/* globals describe, it, after, before, beforeEach */
 'use strict'
-const exec = require('child_process').exec
-const join = require('path').join
-const expect = require('mochi').expect
-const cpr = require('cpr')
+var exec = require('child_process').exec
+var join = require('path').join
+var expect = require('mochi').expect
+var cpr = require('cpr')
+var rimraf = require('rimraf')
 
 var DEBUG = Boolean(process.env.DEBUG)
 var LOGLEVEL = DEBUG ? 'debug' : 'silent'
 
 describe('npm-idempotent-rebuild', function () {
-  const npmIdempotentRebuild = require('../')
+  var npmIdempotentRebuild = require('../')
 
   before(function (done) {
     this.timeout(30000)
@@ -35,6 +36,10 @@ describe('npm-idempotent-rebuild', function () {
       deleteFirst: true,
       overwrite: true
     }, done)
+  })
+
+  after(function (done) {
+    rimraf(join(__dirname, 'test_node_modules'), done)
   })
 
   it('from unbuilt state it rebuilds things', function (done) {

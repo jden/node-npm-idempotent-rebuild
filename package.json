@@ -15,7 +15,9 @@
   "scripts": {
     "lint": "standard",
     "pretest": "standard",
-    "test": "mochi"
+    "test": "mochi",
+    "posttest": "rm -rf test/node_modules test_node_modules",
+    "clean": "cd test; npm run clean"
   },
   "repository": "git@github.com:jden/node-npm-idempotent-rebuild.git",
   "homepage": "https://github.com/jden/node-npm-idempotent-rebuild",
@@ -24,6 +26,7 @@
   "devDependencies": {
     "cpr": "^1.0.0",
     "mochi": "0.3.0",
+    "rimraf": "^2.5.2",
     "standard": "^6.0.0"
   },
   "dependencies": {
@@ -32,6 +35,9 @@
   },
   "bin": "./bin/npm-idempotent-rebuild.js",
   "standard": {
-    "ignore": ["test/node_modules", "test/test_node_modules"]
+    "ignore": [
+      "test/node_modules",
+      "test/test_node_modules"
+    ]
   }
 }
