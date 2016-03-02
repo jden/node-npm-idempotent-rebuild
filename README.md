@@ -1,12 +1,15 @@
 # npm-idempotent-rebuild
 run npm rebuild only if cannot load native modules
 
-[![js standard style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)]()
-
+[![npm](https://img.shields.io/npm/v/npm-idempotent-rebuild.svg)][npm]
+[![js standard style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)][standard]
+[![Dependency Status](https://david-dm.org/jden/node-npm-idempotent-rebuild.svg)][dependencies]
 [![build status](https://circleci.com/gh/jden/node-npm-idempotent-rebuild.svg?&style=shield)][circleci]
 
-[circleci]: https://circleci.com/gh/jden/node-npm-idempotent-rebuild
+[npm]: https://www.npmjs.com/package/npm-idempotent-rebuild
 [standard]: http://standardjs.com/
+[dependencies]: https://david-dm.org/jden/node-npm-idempotent-rebuild
+[circleci]: https://circleci.com/gh/jden/node-npm-idempotent-rebuild
 
 Rebuilding native modules can be slow. This module attempts loading all native modules in
 the dependency tree. If they fail, it runs `npm rebuild`. This is useful when switching
