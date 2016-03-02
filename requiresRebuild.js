@@ -31,7 +31,6 @@ function flatten (tree) {
 function tryRequireModules (modules, callback) {
   try {
     modules.forEach(function (module) {
-      console.log('requiring', module)
       require(module)
     })
   } catch (e) {
